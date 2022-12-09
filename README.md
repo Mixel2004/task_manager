@@ -1,6 +1,9 @@
 # task_manager
 
-A new Flutter project.
+A new Flutter project. It is a simple task manager app for single user.
+[My First Unguided Flutter Project]
+
+![](preview.jpeg)
 
 ## Getting Started
 
