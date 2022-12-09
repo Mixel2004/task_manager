@@ -1,4 +1,4 @@
-# task_manager
+# Task Manager
 
 A new Flutter project. It is a simple task manager app for single user.
 [My First Unguided Flutter Project]
