@@ -62,5 +62,6 @@ class Button extends FloatingActionButton {
           child: Icon(icon, color: Colors.white),
           backgroundColor: color,
           elevation: 0,
+          heroTag: null,
         );
 }
