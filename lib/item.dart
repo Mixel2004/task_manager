@@ -23,9 +23,11 @@ class Item extends StatelessWidget {
               ],
             ),
           ),
-          Button(onPressed: () {
-            deleteTask(task: task);
-          }),
+          Button(
+            onPressed: () {
+              deleteTask(task: task);
+            },
+          ),
         ],
       ),
     );
@@ -59,5 +61,6 @@ class Button extends FloatingActionButton {
           onPressed: onPressed,
           child: Icon(icon, color: Colors.white),
           backgroundColor: color,
+          elevation: 0,
         );
 }
