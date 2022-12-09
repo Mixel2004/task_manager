@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import 'button.dart';
+
 class Item extends StatelessWidget {
   final String task;
   final String date;
-  Item({super.key, required this.task, required this.date});
+  const Item({super.key, required this.task, required this.date});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,20 +50,4 @@ class Item extends StatelessWidget {
       'tasks': FieldValue.arrayRemove([task])
     });
   }
-}
-
-class Button extends FloatingActionButton {
-  Button(
-      {Key? key,
-      IconData icon = Icons.remove,
-      Color color = const Color(0xFF303030),
-      required Function() onPressed})
-      : super(
-          key: key,
-          onPressed: onPressed,
-          child: Icon(icon, color: Colors.white),
-          backgroundColor: color,
-          elevation: 0,
-          heroTag: null,
-        );
 }

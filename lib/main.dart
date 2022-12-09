@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'add_new.dart';
-import 'content.dart';
+import 'pages/add_new.dart';
+import 'pages/content.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();

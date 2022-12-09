@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'item.dart';
+import '../components/button.dart';
+import '../components/item.dart';
 
 class ToDoList extends StatefulWidget {
   const ToDoList({Key? key}) : super(key: key);
