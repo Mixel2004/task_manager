@@ -35,6 +35,7 @@ class _AddNewState extends State<AddNew> {
             ),
             ElevatedButton(
               onPressed: () {
+                if (text!.text.isEmpty) return;
                 final task = text!.text;
                 addTask(task: task);
                 Navigator.pop(context);

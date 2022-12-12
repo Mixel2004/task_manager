@@ -41,7 +41,12 @@ class _ToDoListState extends State<ToDoList> {
               },
             );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            return const Center(
+              child: Text('Add your first task'),
+            );
           }
         },
       ),
@@ -52,6 +57,9 @@ class _ToDoListState extends State<ToDoList> {
     final user = FirebaseAuth.instance.currentUser;
     final docUser =
         FirebaseFirestore.instance.collection('tasks').doc(user?.uid);
+    if (user == null) {
+      return const Stream.empty();
+    }
     return docUser.snapshots().map((snapshot) {
       final tasks = snapshot.data()!['tasks'] as List;
       return tasks.map((task) {
