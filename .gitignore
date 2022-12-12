@@ -53,3 +53,4 @@ key.jks
 ios/Flutter/flutter_export_environment.sh
 .github/
 android/encodedOutputFileName
+test/
