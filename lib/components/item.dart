@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'button.dart';
@@ -36,7 +37,9 @@ class Item extends StatelessWidget {
   }
 
   void deleteTask({required String task}) {
-    final docUser = FirebaseFirestore.instance.collection('tasks').doc('tasks');
+    final user = FirebaseAuth.instance.currentUser;
+    final docUser =
+        FirebaseFirestore.instance.collection('tasks').doc(user?.uid);
     docUser.update({
       'tasks': FieldValue.arrayRemove([
         {

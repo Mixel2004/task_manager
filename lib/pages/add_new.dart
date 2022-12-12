@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -47,7 +48,9 @@ class _AddNewState extends State<AddNew> {
   }
 
   Future addTask({required String task}) async {
-    final docUser = FirebaseFirestore.instance.collection('tasks').doc('tasks');
+    final user = FirebaseAuth.instance.currentUser;
+    final docUser =
+        FirebaseFirestore.instance.collection('tasks').doc(user?.uid);
     var now = DateTime.now();
     var formatter = DateFormat('yyyy-MM-dd  kk:mm');
     String formatted = formatter.format(now);
@@ -55,8 +58,15 @@ class _AddNewState extends State<AddNew> {
       'task': task,
       'date': formatted,
     };
-    docUser.update({
-      'tasks': FieldValue.arrayUnion([taskMap])
-    });
+    final doc = await docUser.get();
+    if (doc.exists) {
+      docUser.update({
+        'tasks': FieldValue.arrayUnion([taskMap])
+      });
+    } else {
+      docUser.set({
+        'tasks': FieldValue.arrayUnion([taskMap])
+      });
+    }
   }
 }

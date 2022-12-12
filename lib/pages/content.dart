@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../components/button.dart';
@@ -48,7 +49,9 @@ class _ToDoListState extends State<ToDoList> {
   }
 
   Stream<List<Item>> readTasks() {
-    final docUser = FirebaseFirestore.instance.collection('tasks').doc('tasks');
+    final user = FirebaseAuth.instance.currentUser;
+    final docUser =
+        FirebaseFirestore.instance.collection('tasks').doc(user?.uid);
     return docUser.snapshots().map((snapshot) {
       final tasks = snapshot.data()!['tasks'] as List;
       return tasks.map((task) {
