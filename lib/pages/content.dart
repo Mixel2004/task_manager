@@ -14,6 +14,16 @@ class ToDoList extends StatefulWidget {
 
 class _ToDoListState extends State<ToDoList> {
   @override
+  void dispose() {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      print(user.email);
+      FirebaseAuth.instance.signOut();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
