@@ -6,15 +6,15 @@ A new Flutter project. It is a simple task manager app for single user.
 ## Previews
 
 ###### Sign Up Page
-![](previews\signup.jpeg)
+![Screenshot](previews/signup.jpeg)
 
 ###### Sign In Page
-![](previews\signin.jpeg)
+![Screenshot](previews/signin.jpeg)
 
 ###### To Do List
-![](previews\to-do-list.jpeg)
+![Screenshot](previews/to-do-list.jpeg)
 ###### Add Task
-![](previews\add-task.jpeg)
+![Screenshot](previews/add-task.jpeg)
 
 ## Getting Started
 
